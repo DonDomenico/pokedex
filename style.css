@@ -1,0 +1,356 @@
+@font-face {
+	font-family: 'Pokemon Solid';
+	src: url(fonts/Pokemon\ Solid_0.ttf);
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	margin: 0;
+	padding-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: aliceblue;
+	background-image: url(img/pokeball-1594373_640.png);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+h2, h3, h4 {
+	margin-block-start: 0.5em;
+	margin-block-end: 0.5em;
+}
+
+.header {
+	display: flex;
+    width: 100%;
+	height: 120px;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    background-color: #efeeee;
+}
+
+	.logo-and-headline {
+		display: flex;
+		align-items: center;
+	}
+
+		.headline {
+			font-family: 'Pokemon Solid', sans-serif;
+			color: #FFCD00;
+			font-size: 48px;
+			margin-block-start: 0;
+			font-weight: 500;
+			/* create a border around each letter */
+			-webkit-text-stroke-width: 2px;
+			-webkit-text-stroke-color: #356ABC;
+		}
+
+		.logo-header {
+			height: 80px;
+		}
+
+	#searchform {
+		display: flex;
+	}
+
+		#searchfield {
+			padding: 8px 8px;
+			font-size: 20px;
+			font-family: 'Roboto', sans-serif;
+			width: 320px;
+		}
+
+		.search-button:hover {
+			cursor: pointer;
+		}
+
+#content {
+	display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+	padding: 16px 24px 16px 24px;
+}
+
+
+.card-small {
+	/* Add shadows to create the "card" effect */
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	height: 260px;
+    width: 220px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 20px;
+	background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);  /*Glanz-Effekt*/
+}
+
+/* On mouse-over, add a deeper shadow */
+.card-small:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	scale: 1.05;
+}
+
+/* Add some padding inside the card container */
+.container {
+	padding: 2px 16px;
+    margin-top: 10px;
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+.pokemon-image {
+	width: 60%;
+}
+
+.load-more-button {
+	width: 200px;
+	display: flex;
+	justify-content: center;
+	background-color: antiquewhite;
+	border: none;
+	border-radius: 20px;
+	padding: 16px;
+
+	&:hover {
+		background-color: rgb(247, 217, 178);
+		cursor: pointer;
+	}
+}
+
+#index-link {
+	justify-content: center;
+	background-color: antiquewhite;
+	border: none;
+	text-decoration: none;
+	border-radius: 20px;
+	padding: 8px;
+	&:hover {
+		background-color: rgb(247, 217, 178);
+		cursor: pointer;
+	}
+}
+
+/* The Modal (background) */
+.modal-bg {
+	display: none;
+	position: fixed;
+	z-index: 2;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+}
+
+	.arrows {
+		position: absolute;
+		top: 380px;
+		width: 520px;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.arrows-vertical {
+		display: none;
+	}
+
+		.arrow-button {
+			border: 2px solid #413d3d;
+			border-radius: 50%;
+			height: 60px;
+			width: 60px;
+			background-color: rgba(255, 255, 255, 0.5);
+			&:hover {
+				color: grey;
+				cursor: pointer;
+				background-color: rgba(255, 255, 255, 0.7);
+				scale: 1.05;
+				transition: all 0.1s ease-in-out;
+			}
+		}
+
+		.arrow-images {
+			width: 30px;
+		}
+
+/* Modal Content/Box */
+.modal-content {
+	margin: 100px auto;
+    width: 400px;
+    height: 640px;
+}
+
+	.card-top {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 60%;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+		background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+	}
+
+	.modal-content h4 {
+		color: #616060;
+	}
+
+	.image-big {
+		width: 70%;
+	}
+
+	#pokemon-type {
+		display: flex;
+    	gap: 16px;
+	}
+
+		.type-bg-color {
+			filter: brightness(0.9);
+			padding: 5px 10px;
+			border-radius: 10px;
+		}
+
+	.card-bottom {
+		padding: 16px;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: white;
+		margin-top: -16px;
+		height: 40%;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+	}
+
+		.chart-container {
+			width: 100%;
+		}
+
+			#myChart {
+				display: block;
+				box-sizing: border-box;
+				height: 190px;
+				width: 380px;
+			}
+
+			
+@media(max-width: 768px) {
+	.headline {
+		display: none;
+	}
+
+	#searchfield {
+		font-size: 24px;
+    	width: 340px;
+	}
+}
+
+@media(max-width: 640px) {
+	.header {
+		gap: 40px
+	}
+}
+
+@media(max-width: 560px) {
+	#searchfield {
+		width: 280px;
+	}
+
+	.arrows {
+		display: none;
+	}
+
+	.arrows-vertical {
+		display: flex;
+		position: absolute;
+		top: 40px;
+		height: 776px;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}
+
+@media(max-width: 500px) {
+	.header {
+		gap: 8px;
+	}
+
+	#searchfield {
+		width: 240px;
+		font-size: 20px;
+	}
+}
+
+@media(max-width: 440px) {
+	.arrows-vertical {
+		top: 58px;
+    	height: 740px;
+	}
+
+	.modal-content {
+		margin: 120px auto;
+		width: 360px;
+		height: 600px;
+	}
+
+	#myChart {
+		height: 175px;
+    	width: 350px;
+	}
+}
+
+@media(max-width: 400px) {
+	.header {
+		flex-direction: column;
+		height: 160px;
+		justify-content: flex-start;
+	}
+}
+
+@media(max-width: 380px) {
+	.modal-content {
+		margin: 160px auto;
+		width: 310px;
+		height: 540px;
+	}
+
+	.arrows-vertical {
+		top: 100px;
+    	height: 676px;
+	}
+
+	#myChart {
+		height: 160px;
+    	width: 300px;
+	}
+}
+
+@media(height < 860px) {
+	.arrows-vertical {
+		top: 12px;
+    	height: 652px;
+	}
+
+	.modal-content {
+		margin: 70px auto;
+		width: 310px;
+		height: 520px;
+	}
+}

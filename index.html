@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" href="img/pokeball-1594373_640.png" type="image/x-icon">
+    <title>Pokédex</title>
+</head>
+<body onload="init()" id="body">
+    <div w3-include-html="templates/header.html" class="header"></div>
+    <div id="content"></div>
+    <button class="load-more-button" id="load-button" onclick="loadMorePokemon()">weitere Pokémon laden</button>
+    <a href="index.html" id="index-link" hidden>Zurück zur Startseite</a>
+
+    <div class="modal-bg" id="modal-bg">
+        <div class="arrows" id="arrows">
+            <button class="arrow-button previous-button" id="previous-button" onclick="showPreviousPokemon()"><img class="arrow-images" src="img/icons/arrow_back.png"></button>
+            <button class="arrow-button next-button" id="next-button" onclick="showNextPokemon()"><img class="arrow-images" src="img/icons/arrow_forward.png"></button>
+        </div>
+        <div class="arrows-vertical" id="arrows-vertical">
+            <button class="arrow-button previous-button" id="previous-button-vertical" onclick="showPreviousPokemon()"><img class="arrow-images" src="img/icons/arrow_upward.png"></button>
+            <button class="arrow-button next-button" id="next-button-vertical" onclick="showNextPokemon()"><img class="arrow-images" src="img/icons/arrow_downward.png"></button>
+        </div>
+        <div class="modal-content" id="modal-content"></div>
+    </div>
+</body>
+</html>
